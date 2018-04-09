@@ -34,11 +34,9 @@ class MobileCallRepository extends EntityRepository {
     }
 
     /**
-     * @param campaignId $
-     *
      * @return Array
      *
-     * returns array with no images causing memory_limit errors
+     * returns array of mobileCalls selected columns
      *
      */
     public function getTop10OffDutyCalls() {
@@ -65,11 +63,10 @@ class MobileCallRepository extends EntityRepository {
     }
 
     /**
-     * @param $from string formatted as yyyy-mm-dd
+     * 
+     * @return integer 
      *
-     * @return integer seconds
-     *
-     * returns integer second of the calls from a given date
+     * returns integer sms count of all sms
      *
      */
     public function totalSms() {
