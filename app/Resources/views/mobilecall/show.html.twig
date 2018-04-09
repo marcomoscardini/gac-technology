@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mobilecall</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mobileCall.id }}</td>
+            </tr>
+            <tr>
+                <th>Account</th>
+                <td>{{ mobileCall.account }}</td>
+            </tr>
+            <tr>
+                <th>Invoice</th>
+                <td>{{ mobileCall.invoice }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ mobileCall.reference }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if mobileCall.createdAt %}{{ mobileCall.createdAt|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdattime</th>
+                <td>{% if mobileCall.createdAtTime %}{{ mobileCall.createdAtTime|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Durationvolume</th>
+                <td>{{ mobileCall.durationVolume }}</td>
+            </tr>
+            <tr>
+                <th>Invoiceddurationvolume</th>
+                <td>{{ mobileCall.invoicedDurationVolume }}</td>
+            </tr>
+            <tr>
+                <th>Connectiontype</th>
+                <td>{{ mobileCall.connectionType }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mobilecall_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mobilecall_edit', { 'id': mobileCall.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,3 @@
+ERROR 1292 (22007) at line 27429: Incorrect date value: '2012-02-30' for column 'created_at' at row 1
+ERROR 1292 (22007) at line 57499: Incorrect time value: '#error' for column 'created_at_time' at row 1
+

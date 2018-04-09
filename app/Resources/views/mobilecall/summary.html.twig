@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Retrouver la durée totale réelle des appels effectués après le 15/02/2012 (inclus)</h1>
+    {{ total_calls | default(0)}} Seconds
+    
+    <h1>Retrouver le TOP 10 des volumes data facturés en dehors de la tranche horaire 8h00-
+18h00, par abonné.</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Account</th>
+                <th>Invoice</th>
+                <th>Reference</th>
+                <th>Createdat</th>
+                <th>Createdattime</th>
+                <th>Durationvolume</th>
+                <th>Invoiceddurationvolume</th>
+                <th>Connectiontype</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mobileCall in mobileCalls %}
+            <tr>
+                <td>{{ mobileCall.account | default('') }}</td>
+                <td>{{ mobileCall.invoice | default('')}}</td>
+                <td>{{ mobileCall.reference | default('') }}</td>
+                <td>{% if mobileCall.createdAt %}{{ mobileCall.createdAt|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if mobileCall.createdAtTime %}{{ mobileCall.createdAtTime|date('H:i:s') }}{% endif %}</td>
+                <td>{{ mobileCall.durationVolume | default('')}}</td>
+                <td>{{ mobileCall.invoicedDurationVolume | default('')}}</td>
+                <td>{{ mobileCall.connectionType | default('')}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Retrouver la quantité totale de SMS envoyés par l'ensemble des abonnés</h1>
+    {{ total_sms | default(0)}} SMS
+{% endblock %}

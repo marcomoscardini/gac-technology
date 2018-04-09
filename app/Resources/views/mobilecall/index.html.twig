@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mobilecalls list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Account</th>
+                <th>Invoice</th>
+                <th>Reference</th>
+                <th>Createdat</th>
+                <th>Createdattime</th>
+                <th>Durationvolume</th>
+                <th>Invoiceddurationvolume</th>
+                <th>Connectiontype</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mobileCall in mobileCalls %}
+            <tr>
+                <td><a href="{{ path('mobilecall_show', { 'id': mobileCall.id }) }}">{{ mobileCall.id }}</a></td>
+                <td>{{ mobileCall.account }}</td>
+                <td>{{ mobileCall.invoice }}</td>
+                <td>{{ mobileCall.reference }}</td>
+                <td>{% if mobileCall.createdAt %}{{ mobileCall.createdAt|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if mobileCall.createdAtTime %}{{ mobileCall.createdAtTime|date('H:i:s') }}{% endif %}</td>
+                <td>{{ mobileCall.durationVolume }}</td>
+                <td>{{ mobileCall.invoicedDurationVolume }}</td>
+                <td>{{ mobileCall.connectionType }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mobilecall_show', { 'id': mobileCall.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mobilecall_edit', { 'id': mobileCall.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mobilecall_new') }}">Create a new mobileCall</a>
+        </li>
+    </ul>
+{% endblock %}
