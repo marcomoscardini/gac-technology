@@ -8,7 +8,7 @@ A Symfony project created on April 9, 2018, 4:55 pm.
 composer install
 bin/console doctrine:database:create
 bin/console doctrine:schema:create
-bin/console doctrine:database:import tickets.utf8D.sql o bin/console doctrine:database:import dump.sql
+bin/console doctrine:database:import tickets.utf8D.sql # or bin/console doctrine:database:import dump.sql
 bin/console server:run 0.0.0.0:8888
 ``` 
 
