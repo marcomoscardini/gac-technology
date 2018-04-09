@@ -12,7 +12,7 @@ bin/console doctrine:database:import tickets.utf8D.sql o bin/console doctrine:da
 bin/console server:run 0.0.0.0:8888
 ``` 
 
-Visit http://localhost:8888/mobilecall
+Visit http://localhost:8888/mobilecall/summary
 The crud has been left, but it could have been removed to reduce default 
 controller and form folders free of default code.
 
