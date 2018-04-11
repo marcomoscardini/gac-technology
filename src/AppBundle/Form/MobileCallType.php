@@ -33,6 +33,4 @@ class MobileCallType extends AbstractType
     {
         return 'appbundle_mobilecall';
     }
-
-
 }

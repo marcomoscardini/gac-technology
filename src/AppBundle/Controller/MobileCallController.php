@@ -20,14 +20,15 @@ class MobileCallController extends Controller
     /**
      * Provides report as indicated in specs:
      *  Retrouver la durée totale réelle des appels effectués après le 15/02/2012 (inclus)
-     *  Retrouver le TOP 10 des volumes data facturés en dehors de la tranche horaire 
+     *  Retrouver le TOP 10 des volumes data facturés en dehors de la tranche horaire
      *  8h00-18h00, par abonné.
      *  Retrouver la quantité totale de SMS envoyés par l'ensemble des abonnés
-     * 
+     *
      * @Route("/summary", name="mobilecall_summary")
      * @Method("GET")
      */
-    public function summaryAction() {
+    public function summaryAction()
+    {
         $em = $this->getDoctrine()->getManager();
 
         $totalCalls = $em->getRepository('AppBundle:MobileCall')->totalCalls(new DateTime("2012-02-15"));

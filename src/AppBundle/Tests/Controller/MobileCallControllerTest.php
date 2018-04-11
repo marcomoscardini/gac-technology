@@ -6,7 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class MobileCallControllerTest extends WebTestCase
 {
-    public function testSummarySchenario() {
+    public function testSummarySchenario()
+    {
         // Create a new client to browse the application
         $client = static::createClient();
         
@@ -16,7 +17,7 @@ class MobileCallControllerTest extends WebTestCase
         $this->assertRegExp('/5714287 Seconds/', $client->getResponse()->getContent());
         $this->assertRegExp('/197148.0/', $client->getResponse()->getContent());
         $this->assertRegExp('/12039 SMS/', $client->getResponse()->getContent());
-       }
+    }
            
     /*
     public function testCompleteScenario()

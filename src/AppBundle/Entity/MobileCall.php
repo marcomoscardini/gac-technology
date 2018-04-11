@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping\Index;
  * @ORM\Table(name="mobile_call")
  * @ORM\Table(indexes={@ORM\Index(name="connection_type_idx", columns={"connection_type"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MobileCallRepository")
- * 
+ *
  */
 class MobileCall
 {
@@ -283,4 +283,3 @@ class MobileCall
         return $this->connectionType;
     }
 }
-
